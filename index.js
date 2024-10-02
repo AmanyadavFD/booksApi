@@ -4,7 +4,12 @@ const app = express();
 app.use(express.json());
 
 const cors = require("cors");
-app.use(cors());
+
+const coreOptions = {
+  origin: "*",
+  credentials: true,
+};
+app.use(cors(coreOptions));
 
 const Books = require("./models/books.models");
 console.log("Connect to database");
